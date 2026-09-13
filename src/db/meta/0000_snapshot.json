@@ -1,0 +1,252 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "6",
+  "dialect": "sqlite",
+  "tables": {
+    "CarpetaBordado": {
+      "name": "CarpetaBordado",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "nombre": {
+          "autoincrement": false,
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "descripcion": {
+          "autoincrement": false,
+          "name": "descripcion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "color": {
+          "default": "'#515151'",
+          "autoincrement": false,
+          "name": "color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "fecha_creacion",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "Bordado": {
+      "name": "Bordado",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "nombre": {
+          "autoincrement": false,
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "carpeta": {
+          "autoincrement": false,
+          "name": "carpeta",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "url_archivo": {
+          "autoincrement": false,
+          "name": "url_archivo",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "favorito": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "favorito",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_visita": {
+          "autoincrement": false,
+          "name": "fecha_visita",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "fecha_creacion",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {
+        "Bordado_carpeta_CarpetaBordado_id_fk": {
+          "name": "Bordado_carpeta_CarpetaBordado_id_fk",
+          "tableFrom": "Bordado",
+          "tableTo": "CarpetaBordado",
+          "columnsFrom": [
+            "carpeta"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "CarpetaMolde": {
+      "name": "CarpetaMolde",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "nombre": {
+          "autoincrement": false,
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "descripcion": {
+          "autoincrement": false,
+          "name": "descripcion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "color": {
+          "default": "'#515151'",
+          "autoincrement": false,
+          "name": "color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "fecha_creacion",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "Molde": {
+      "name": "Molde",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": false
+        },
+        "nombre": {
+          "autoincrement": false,
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "carpeta": {
+          "autoincrement": false,
+          "name": "carpeta",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "favorito": {
+          "default": 0,
+          "autoincrement": false,
+          "name": "favorito",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_visita": {
+          "autoincrement": false,
+          "name": "fecha_visita",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fecha_creacion": {
+          "default": "(CURRENT_TIMESTAMP)",
+          "autoincrement": false,
+          "name": "fecha_creacion",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {
+        "Molde_carpeta_CarpetaMolde_id_fk": {
+          "name": "Molde_carpeta_CarpetaMolde_id_fk",
+          "tableFrom": "Molde",
+          "tableTo": "CarpetaMolde",
+          "columnsFrom": [
+            "carpeta"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
